@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { config } from "dotenv";
-import logger from "../utils/logger/loggerConfig";
+import logger from "../utils/logger/logger";
 config();
 const connectionString: string = process.env.MONGO_CONNECTION_STRING || "";
 

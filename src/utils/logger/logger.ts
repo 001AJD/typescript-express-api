@@ -1,25 +1,10 @@
-import logger from "./loggerConfig";
-import { Request } from "express";
+import { createLogger, format, transports } from "winston";
 
-const requestLogger = (
-	req: Request,
-	logLevel: string,
-	message: string,
-	startTime: bigint,
-	endTime: bigint
-) => {
-	const time = (endTime - startTime) / 1000000n; // convert nano seconds to miliseconds
-	const logObject = {
-		path: req.path,
-		message: message,
-		time: `${time}(ms)`,
-	};
-	if (logLevel === "info") {
-		logger.info(logObject);
-	}
-	if (logLevel === "error") {
-		logger.error(logObject);
-	}
+const loggerConfig = {
+	format: format.combine(format.json(), format.colorize({ all: true })),
+	transports: [new transports.Console()],
 };
 
-export default requestLogger;
+const logger = createLogger(loggerConfig);
+
+export default logger;

@@ -1,6 +1,6 @@
 import express from "express";
 import helmet from "helmet";
-import logger from "./utils/logger/loggerConfig";
+import logger from "./utils/logger/logger";
 import { createConnection } from "./db/mongoConnection";
 import blogRouter from "./routers/blog.router";
 

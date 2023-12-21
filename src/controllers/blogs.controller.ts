@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import requestLogger from "../utils/logger/logger";
+import requestLogger from "../utils/logger/requestLogger";
 import { getBlogs, getBlogById } from "../services/blogs.service";
 
 const getAllBlogsController = async (req: Request, res: Response) => {
