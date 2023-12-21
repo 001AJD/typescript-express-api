@@ -1,7 +1,12 @@
 import express from "express";
-import { getAllBlogs } from "../controllers/blogs.controller";
+import {
+	getAllBlogsController,
+	getBlogByIdController,
+} from "../controllers/blogs.controller";
+
 const router = express.Router();
 
-router.get("/blogs", getAllBlogs);
+router.get("/blogs", getAllBlogsController);
+router.get("/blog/:id", getBlogByIdController);
 
 export default router;

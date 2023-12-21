@@ -5,7 +5,7 @@ const app = express();
 
 createConnection();
 
-app.use("/api", blogRouter);
+app.use("/api/v1", blogRouter);
 
 app.listen(3000, () => {
 	console.log("Listening on port 3000");
