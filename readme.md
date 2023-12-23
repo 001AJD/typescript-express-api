@@ -1,5 +1,19 @@
-## NodeJS Rest API written in typescript
+# 🎬 NodeJS API developed using ExpressJS and Typescript
 
-### npm i
+### The REST API for a sample blog database
 
-.
+## ⬇ Install Dependencies
+
+> **npm install**
+
+## ⚒️ Build - Transpiles the typescript into Javascript code into dist folder in root directory
+
+> **npm run build**
+
+## ⚒️ Run app
+
+> **npm run start**
+
+## ⚒️ Start dev server
+
+> **npm run dev**
