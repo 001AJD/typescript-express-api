@@ -5,12 +5,18 @@ config();
 const connectionString: string = process.env.MONGO_CONNECTION_STRING || "";
 
 const createConnection = async () => {
-	try {
-		await mongoose.connect(connectionString);
-		logger.info("Connected to Database!");
-	} catch (e: any) {
-		logger.error("Error connecting to Database ==> " + e.stack);
-	}
+	return new Promise((resolve, reject) => {
+		mongoose
+			.connect(connectionString)
+			.then((response) => {
+				logger.info("Connected to Database!");
+				resolve(response);
+			})
+			.catch((err: any) => {
+				logger.error("Error Connecting to database => " + err.stack);
+				reject(err);
+			});
+	});
 };
 
 export { createConnection };

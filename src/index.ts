@@ -8,7 +8,7 @@ import verifyApiKey from "./middlewares/verifyKey";
 const init = async () => {
 	const app = express();
 	app.use(helmet());
-	createConnection();
+	await createConnection();
 	app.use(verifyApiKey);
 	app.use("/api/v1", blogRouter);
 	app.listen(3000, () => {
