@@ -32,4 +32,26 @@ describe("Test suite for getAllBlogsController", () => {
 		BlogModelMock.restore();
 		done();
 	});
+
+	it("Should return empty list of blogs", (done) => {
+		const req = {} as Request;
+		const res = {
+			status: function (s) {
+				this.statusCode = s;
+				return this;
+			},
+			json: function (s) {
+				this.statusCode = s;
+				return this;
+			},
+		} as Response;
+
+		const dbResponse: any = [];
+		const BlogModelMock = mock(BlogModel);
+		BlogModelMock.expects("find").withArgs().resolves(dbResponse);
+		getAllBlogsController(req, res);
+		BlogModelMock.verify();
+		BlogModelMock.restore();
+		done();
+	});
 });
